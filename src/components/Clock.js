@@ -61,7 +61,7 @@ export default function Clock() {
                 ...state,
                 breakLength: state.breakLength < 60 ? state.breakLength + 1 : state.breakLength,
                 minutes: state.currentTimer === 'Break' ? state.breakLength < 60 ? state.breakLength + 1 : state.breakLength : state.minutes,
-                seconds: 0
+                seconds: state.currentTimer === 'Break' ? 0 : state.seconds
             }));
         }
         if (timerName === 'session') {
@@ -69,7 +69,7 @@ export default function Clock() {
                 ...state,
                 sessionLength: state.sessionLength < 60 ? state.sessionLength + 1 : state.sessionLength,
                 minutes: state.currentTimer === 'Session' ? state.sessionLength < 60 ? state.sessionLength + 1 : state.sessionLength : state.minutes,
-                seconds: 0
+                seconds: state.currentTimer === 'Session' ? 0 : state.seconds
             }));
         }
     }
@@ -80,7 +80,7 @@ export default function Clock() {
                 ...state,
                 breakLength: state.breakLength > 1 ? state.breakLength - 1 : state.breakLength,
                 minutes: state.currentTimer === 'Break' ? state.breakLength > 1 ? state.breakLength - 1 : state.breakLength : state.minutes,
-                seconds: 0
+                seconds: state.currentTimer === 'Break' ? 0 : state.seconds
             }));
         }
         if (timerName === 'session') {
@@ -88,7 +88,7 @@ export default function Clock() {
                 ...state,
                 sessionLength: state.sessionLength > 1 ? state.sessionLength - 1 : state.sessionLength,
                 minutes: state.currentTimer === 'Session' ? state.sessionLength > 1 ? state.sessionLength - 1 : state.sessionLength : state.minutes,
-                seconds: 0
+                seconds: state.currentTimer === 'Session' ? 0 : state.seconds
             }));
         }
     }
